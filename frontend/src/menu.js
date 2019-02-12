@@ -7,8 +7,4 @@ export default [
         link:"/user",
         title: "User",
     },
-    {
-        link:"/api/",
-        title: "RestAPI",
-    },
 ];
