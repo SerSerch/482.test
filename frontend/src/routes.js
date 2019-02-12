@@ -1,21 +1,17 @@
 import Hello from 'components/Hello';
-//import Project from 'components/Project';
+import Home from 'layouts/Home';
 
 export default [
     {
         path: '/',
-        component: Hello,
+        component: Home,
         exact: true
     },
     {
-        path: '/user',
+        path: '/myprojects',
+        component: Home,
         exact: true
     },
-    // {
-    //     path: '/project/:id',
-    //     component: Project,
-    //     exact: true
-    // },
     {
         path: '*',
         component: Hello,
