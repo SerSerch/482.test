@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
 import userReducer from './usersReduser';
+import projectsReducer from './projectsReduser';
 
 export default combineReducers({
-    //за управление этим хранилищем отвечает этот редюсер
     user: userReducer,
+    projects: projectsReducer,
 });
