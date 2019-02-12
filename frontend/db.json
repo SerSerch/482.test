@@ -1,0 +1,69 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "serserch",
+      "projects": [
+        1,
+        2
+      ],
+      "likes": {
+        "4": 1,
+        "3": -1
+      }
+    },
+    {
+      "id": 2,
+      "login": "test",
+      "projects": [
+        3,
+        4
+      ],
+      "likes": {
+        "1": 1
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "autor": 1,
+      "name": "Мой проект 1",
+      "img": "/img/prject1.jpg",
+      "description": "Интернет магазин",
+      "likes": 1,
+      "dislike": 0,
+      "date": "2019-02-12T10:47:14.633Z"
+    },
+    {
+      "id": 2,
+      "autor": 1,
+      "name": "Мой проект 2",
+      "img": "/img/prject2.jpg",
+      "description": "Ремонт компуктеров",
+      "likes": 0,
+      "dislike": 0,
+      "date": "2019-02-12T10:49:14.633Z"
+    },
+    {
+      "id": 3,
+      "autor": 2,
+      "name": "Мой проект 3",
+      "img": "/img/prject3.jpg",
+      "description": "Покатушечки",
+      "likes": 0,
+      "dislike": 1,
+      "date": "2019-02-12T10:51:14.633Z"
+    },
+    {
+      "id": 4,
+      "autor": 2,
+      "name": "Мой проект 4",
+      "img": "/img/prject4.jpg",
+      "description": "Финансовый менеджер",
+      "likes": 1,
+      "dislike": 0,
+      "date": "2019-02-12T10:54:14.633Z"
+    }
+  ]
+}

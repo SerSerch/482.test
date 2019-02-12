@@ -18,7 +18,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'dist'),
         proxy: {
             '/api': {
-                target: '#',
+                target: 'http://localhost:3000/',
                 pathRewrite: {'^/api' : ''},
                 changeOrigin: true,
                 secure: false,

@@ -1,7 +1,14 @@
-export default {
-    "#aboutme": "About Me",
-    "#relationships": "Relationships",
-    "#requirements": "Requirements",
-    "#users": "Users",
-    "#signup": "Sign Up",
-};
+export default [
+    {
+        link:"/",
+        title: "Home",
+    },
+    {
+        link:"/user",
+        title: "User",
+    },
+    {
+        link:"/api/",
+        title: "RestAPI",
+    },
+];

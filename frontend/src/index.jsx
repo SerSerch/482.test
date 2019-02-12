@@ -18,19 +18,20 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import Navtop from 'containers/NavtopContainer';
+import Navtop from 'components/Navtop';
 import Footer from 'components/Footer';
 
 import routes from './routes';
 import { store } from './store';
 import { theme482 } from './theme';
+import menu from "./menu";
 
 class App extends Component{
     render(){
         return(
             <Fragment>
                 <div className="container">
-                    <Navtop />
+                    <Navtop menu={menu} />
                     <main className="main">
                         <Switch>
                             {routes.map((route, idx) => <Route key={idx} {...route}/>)}
