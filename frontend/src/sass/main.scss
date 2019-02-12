@@ -1,0 +1,111 @@
+@import "vars";
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: $background-color;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-width: 320px;
+	min-height: 320px;
+	margin: 0 auto;
+	font-family: $default-font;
+}
+
+.container {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+}
+
+.main {
+	position: relative;
+	padding: 64px 0 16px;
+	box-sizing: border-box;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+.link {
+	display: block;
+	text-decoration: none;
+	outline: none;
+	color: #000;
+	&._s {
+		color: $s-text-color;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color: $p-color;
+		.icon {
+			fill: $p-color;
+		}
+	}
+}
+
+.text {
+	&._link {
+		color: inherit;
+	}
+}
+
+.hash {
+	margin-top: -64px;
+	height: 64px;
+	width: 0px;
+}
+
+.paragraph {
+	&._small {
+		font-size: 0.875rem;
+		line-height: 1.0625rem;
+	}
+	&._smalled {
+		font-size: 0.75rem;
+	}
+}
+
+._bg-s {
+	background-color: $s-color;
+}
+
+._ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+._middle {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	&._p {
+		fill: $p-icon-active;
+		&:hover {
+			fill: $p-color;
+			cursor: pointer;
+		}
+	}
+	&._s {
+		fill: $s-color;
+		&:hover {
+			fill: $s-active-color;
+			cursor: pointer;
+		}
+	}
+	&._disable {
+		fill: $p-icon-disable !important;
+	}
+}
+
+@import "media";
