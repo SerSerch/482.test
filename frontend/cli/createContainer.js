@@ -30,7 +30,7 @@ export default ${componentName};`;
 
 const containerCode = `import React from 'react';
 import { connect } from 'react-redux';
-import { testSigningIn } from 'actions/${nameLowerCase}s';
+import { testSigningIn } from 'actions/${nameLowerCase}Action';
 import ${componentName} from 'components/${componentName}';
 
 
