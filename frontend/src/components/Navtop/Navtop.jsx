@@ -68,29 +68,36 @@ class Navtop extends PureComponent {
                                                 </Item>
                                             </Link>
                                         ))}
+                                        <a href="/api/" className="link">
+                                            <Item>
+                                                <Typography className="text _link">
+                                                    RestAPI
+                                                </Typography>
+                                            </Item>
+                                        </a>
                                     </Container>
                                 </div>
                                 {user &&
-                                    <div className="user section _desctop" wrap="nowrap">
-                                        <div className="user__info">
-                                            <Tooltip title={user.name} aria-label={user.name}>
-                                                <Typography className="paragraph _small _ellipsis">
-                                                    {user.name}
-                                                </Typography>
-                                            </Tooltip>
-                                            <Tooltip title={user.email} aria-label={user.email}>
-                                                <Typography className="paragraph _small _ellipsis _email">
-                                                    {user.email}
-                                                </Typography>
-                                            </Tooltip>
-                                        </div>
-                                        <div>
-                                            <img className="user__image" src={user.photo} alt=""/>
-                                        </div>
-                                        <div className="user__icon">
-                                            SOut
-                                        </div>
+                                <div className="user section _desctop" wrap="nowrap">
+                                    <div className="user__info">
+                                        <Tooltip title={user.name} aria-label={user.name}>
+                                            <Typography className="paragraph _small _ellipsis">
+                                                {user.name}
+                                            </Typography>
+                                        </Tooltip>
+                                        <Tooltip title={user.email} aria-label={user.email}>
+                                            <Typography className="paragraph _small _ellipsis _email">
+                                                {user.email}
+                                            </Typography>
+                                        </Tooltip>
                                     </div>
+                                    <div>
+                                        <img className="user__image" src={user.photo} alt=""/>
+                                    </div>
+                                    <div className="user__icon">
+                                        SOut
+                                    </div>
+                                </div>
                                 }
                                 <div className="section _mobile">
                                     <IconButton className="menu__button _right"
@@ -135,6 +142,11 @@ class Navtop extends PureComponent {
                                 </div>
                                 : ''
                             }
+                            <a href="/api/" className="link">
+                                <ListItem button className="">
+                                    <ListItemText primary="RestAPI" />
+                                </ListItem>
+                            </a>
                             <Divider />
                             {menu.map((item, index) => (
                                 <Link
