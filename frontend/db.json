@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "serserch",
+      "likes": {}
+    },
+    {
+      "id": 2,
+      "login": "test",
+      "likes": {
+        "1": 1
+      }
+    },
+    {
+      "login": "rere",
+      "likes": {},
+      "id": 3
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "autor": 1,
+      "name": "Мой проект 1",
+      "img": "/img/prject1.jpg",
+      "description": "Интернет магазин",
+      "detailed": "Швейцарские часы с доставкой в Одессу",
+      "likes": 1,
+      "date": "2019-02-12T10:47:44.905Z",
+      "dislikes": 0
+    },
+    {
+      "id": 2,
+      "autor": 1,
+      "name": "Мой проект 2",
+      "img": "/img/prject1.jpg",
+      "description": "Ремонт компуктеров",
+      "detailed": "Ремонт компуктеров в Одессе и области",
+      "likes": 0,
+      "dislikes": 0,
+      "date": "2019-02-12T10:49:14.633Z"
+    },
+    {
+      "id": 3,
+      "autor": 2,
+      "name": "Проект 84",
+      "img": "/img/prject1.jpg",
+      "description": "Покатушечки",
+      "detailed": "Незабываемые впечатления с экскурсией по Одессе",
+      "likes": 0,
+      "dislikes": 0,
+      "date": "2019-02-12T10:51:14.633Z"
+    },
+    {
+      "id": 4,
+      "autor": 2,
+      "name": "Мой проект 4",
+      "img": "/img/prject1.jpg",
+      "description": "Финансовый менеджер",
+      "detailed": "Таки то, что нужно пойдя на Одесский Привоз",
+      "likes": 0,
+      "dislikes": 0,
+      "date": "2019-02-12T10:54:14.633Z"
+    },
+    {
+      "id": 5,
+      "autor": 1,
+      "name": "Мой проект 10",
+      "img": "/img/project1.jpg",
+      "description": "Интернет магазин",
+      "detailed": "Швейцарские часы с доставкой в Одессу",
+      "likes": 0,
+      "date": "2019-02-13T02:53:07.959Z",
+      "dislikes": 0
+    },
+    {
+      "autor": 3,
+      "name": "Мой проект 10",
+      "img": "/img/project1.jpg",
+      "description": "Интернет магазин",
+      "detailed": "Швейцарские часы с доставкой в Одессу",
+      "likes": 0,
+      "dislikes": 0,
+      "date": "2019-02-13T23:12:48.168Z",
+      "id": 6
+    }
+  ]
+}
