@@ -117,16 +117,16 @@ class Projects extends PureComponent {
                                         </Typography>
                                     </div>
                                     <div>
+                                        {item.likes}
                                         <Likes
                                             id={item.id}
-                                            quantity={item.likes}
                                             onClick={this.likesProject}
                                         />
                                         <Dislikes
                                             id={item.id}
-                                            quantity={item.dislikes}
                                             onClick={this.dislikesProject}
                                         />
+                                        {item.dislikes}
                                     </div>
                                 </Item>
                             )

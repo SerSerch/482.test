@@ -29,7 +29,11 @@ export class Likes extends PureComponent {
         const {id, quantity, disabled, onClick} = this.props;
         return (
             <Fragment>
-                <ButtonLikes name={id} onClick={onClick} disabled={disabled}>{quantity}</ButtonLikes>
+                {disabled?
+                    <ButtonLikes name={id} disabled>++</ButtonLikes>
+                    :
+                    <ButtonLikes name={id} onClick={onClick}>++</ButtonLikes>
+                }
             </Fragment>
         );
     }
@@ -45,7 +49,11 @@ export class Dislikes extends PureComponent {
         const {id, quantity, disabled, onClick} = this.props;
         return (
             <Fragment>
-                <ButtonDislikes name={id} onClick={onClick} disabled={disabled}>{quantity}</ButtonDislikes>
+                {disabled?
+                    <ButtonDislikes name={id} disabled>--</ButtonDislikes>
+                    :
+                    <ButtonDislikes name={id} onClick={onClick}>--</ButtonDislikes>
+                }
             </Fragment>
         );
     }
