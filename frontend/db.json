@@ -3,20 +3,19 @@
     {
       "id": 1,
       "login": "serserch",
-      "projects": [
-        1,
-        2
-      ],
       "likes": {}
     },
     {
       "id": 2,
       "login": "test",
-      "projects": [
-        3,
-        4
-      ],
-      "likes": {}
+      "likes": {
+        "1": 1
+      }
+    },
+    {
+      "login": "rere",
+      "likes": {},
+      "id": 3
     }
   ],
   "projects": [
@@ -24,43 +23,43 @@
       "id": 1,
       "autor": 1,
       "name": "Мой проект 1",
-      "img": "/img/prject10.jpg",
+      "img": "/img/prject1.jpg",
       "description": "Интернет магазин",
       "detailed": "Швейцарские часы с доставкой в Одессу",
-      "likes": 3,
+      "likes": 1,
       "date": "2019-02-12T10:47:44.905Z",
-      "dislikes": 1
+      "dislikes": 0
     },
     {
       "id": 2,
       "autor": 1,
       "name": "Мой проект 2",
-      "img": "/img/prject2.jpg",
+      "img": "/img/prject1.jpg",
       "description": "Ремонт компуктеров",
       "detailed": "Ремонт компуктеров в Одессе и области",
-      "likes": 6,
+      "likes": 0,
       "dislikes": 0,
       "date": "2019-02-12T10:49:14.633Z"
     },
     {
       "id": 3,
       "autor": 2,
-      "name": "Мой проект 3",
-      "img": "/img/prject3.jpg",
+      "name": "Проект 84",
+      "img": "/img/prject1.jpg",
       "description": "Покатушечки",
       "detailed": "Незабываемые впечатления с экскурсией по Одессе",
       "likes": 0,
-      "dislikes": 3,
+      "dislikes": 0,
       "date": "2019-02-12T10:51:14.633Z"
     },
     {
       "id": 4,
       "autor": 2,
       "name": "Мой проект 4",
-      "img": "/img/prject4.jpg",
+      "img": "/img/prject1.jpg",
       "description": "Финансовый менеджер",
       "detailed": "Таки то, что нужно пойдя на Одесский Привоз",
-      "likes": 7,
+      "likes": 0,
       "dislikes": 0,
       "date": "2019-02-12T10:54:14.633Z"
     },
@@ -68,23 +67,23 @@
       "id": 5,
       "autor": 1,
       "name": "Мой проект 10",
-      "img": "/img/project10.jpg",
+      "img": "/img/project1.jpg",
       "description": "Интернет магазин",
       "detailed": "Швейцарские часы с доставкой в Одессу",
-      "likes": 1,
+      "likes": 0,
       "date": "2019-02-13T02:53:07.959Z",
-      "dislikes": 3
+      "dislikes": 0
     },
     {
-      "id": 6,
-      "autor": 1,
+      "autor": 3,
       "name": "Мой проект 10",
-      "img": "/img/project10.jpg",
+      "img": "/img/project1.jpg",
       "description": "Интернет магазин",
       "detailed": "Швейцарские часы с доставкой в Одессу",
-      "likes": 5,
-      "date": "2019-02-13T02:58:08.417Z",
-      "dislikes": 1
+      "likes": 0,
+      "dislikes": 0,
+      "date": "2019-02-13T23:12:48.168Z",
+      "id": 6
     }
   ]
 }
