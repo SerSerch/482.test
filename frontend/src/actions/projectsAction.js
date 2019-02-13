@@ -1,18 +1,33 @@
 import { createAction } from 'redux-actions';
 
 export const getAllProjectsAction = createAction('[Projects] getAllProjectsAction');
+export const getMyProjectsAction = createAction('[Projects] getMyProjectsAction');
 export const createProjectAction = createAction('[Projects] createProjectAction');
-export const editProjectAction = createAction('[Projects] editProjectAction');
+export const editAllProjectAction = createAction('[Projects] editAllProjectAction');
+export const editMyProjectAction = createAction('[Projects] editMyProjectAction');
 export const deleteProjectAction = createAction('[Projects] deleteProjectAction');
 
 export const getAllProjects = (params=[]) => (dispatch) => {
-    fetch('/api/projects?'+params.join('&'))
-        .then(res => res.json() )
+    Promise.all([
+        fetch('/api/users').then(res => res.json()),
+        fetch('/api/projects?'+params.join('&')).then(res => res.json())
+    ])
         .then(projects => {
             dispatch(getAllProjectsAction(projects))
         })
         .catch(err => {
             dispatch(getAllProjectsAction( {error: err} ))
+        });
+};
+
+export const getMyProjects = (params=[]) => (dispatch) => {
+    fetch('/api/projects?'+params.join('&'))
+        .then(res => res.json() )
+        .then(projects => {
+            dispatch(getMyProjectsAction(projects))
+        })
+        .catch(err => {
+            dispatch(getMyProjectsAction( {error: err} ))
         });
 };
 
@@ -34,7 +49,7 @@ export const createProject = (data) => (dispatch) => {
         });
 };
 
-export const editProject = (id, data) => (dispatch) => {
+export const editAllProject = (id, data) => (dispatch) => {
     fetch('/api/projects/'+id,{
         method: 'put',
         headers: {
@@ -45,10 +60,30 @@ export const editProject = (id, data) => (dispatch) => {
     })
         .then(res => res.json() )
         .then(project => {
-            dispatch(editProjectAction(project))
+            dispatch(editAllProjectAction(project))
         })
         .catch(err => {
-            dispatch(editProjectAction( {error: err} ))
+            dispatch(editAllProjectAction( {error: err} ))
+        });
+
+
+};
+
+export const editMyProject = (id, data) => (dispatch) => {
+    fetch('/api/projects/'+id,{
+        method: 'put',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json() )
+        .then(project => {
+            dispatch(editMyProjectAction(project))
+        })
+        .catch(err => {
+            dispatch(editMyProjectAction( {error: err} ))
         });
 };
 
