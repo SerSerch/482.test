@@ -25,17 +25,11 @@ export class Likes extends PureComponent {
         this.state = {};
     }
 
-    setLikes = () => {
-        const {id, onClick} = this.props;
-
-        onClick(id);
-    };
-
     render() {
-        const {quantity, disabled} = this.props;
+        const {id, quantity, disabled, onClick} = this.props;
         return (
             <Fragment>
-                <ButtonLikes onClick={this.setLikes} disabled={disabled}>{quantity}</ButtonLikes>
+                <ButtonLikes name={id} onClick={onClick} disabled={disabled}>{quantity}</ButtonLikes>
             </Fragment>
         );
     }
@@ -47,17 +41,11 @@ export class Dislikes extends PureComponent {
         this.state = {};
     }
 
-    setLikes = () => {
-        const {id, onClick} = this.props;
-
-        onClick(id);
-    };
-
     render() {
-        const {quantity, disabled} = this.props;
+        const {id, quantity, disabled, onClick} = this.props;
         return (
             <Fragment>
-                <ButtonDislikes onClick={this.setLikes} disabled={disabled}>{quantity}</ButtonDislikes>
+                <ButtonDislikes name={id} onClick={onClick} disabled={disabled}>{quantity}</ButtonDislikes>
             </Fragment>
         );
     }

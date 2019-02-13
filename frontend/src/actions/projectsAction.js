@@ -5,8 +5,8 @@ export const createProjectAction = createAction('[Projects] createProjectAction'
 export const editProjectAction = createAction('[Projects] editProjectAction');
 export const deleteProjectAction = createAction('[Projects] deleteProjectAction');
 
-export const getAllProjects = () => (dispatch) => {
-    fetch('/api/projects')
+export const getAllProjects = (params=[]) => (dispatch) => {
+    fetch('/api/projects?'+params.join('&'))
         .then(res => res.json() )
         .then(projects => {
             dispatch(getAllProjectsAction(projects))

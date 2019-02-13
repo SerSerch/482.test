@@ -14,7 +14,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, props) {
     return {
         ...props,
-        getAllProjects: () => dispatch(getAllProjects()),
+        getAllProjects: (params) => dispatch(getAllProjects(params)),
         createProject: (data) => dispatch(createProject(data)),
         editProject: (id, data) => dispatch(editProject(id, data)),
         deleteProject: (id) => dispatch(deleteProject(id)),
