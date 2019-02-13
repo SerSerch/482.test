@@ -2,13 +2,17 @@ import { handleActions } from 'redux-actions';
 
 import {
     getAllProjectsAction,
+    getMyProjectsAction,
     createProjectAction,
-    editProjectAction,
+    editAllProjectAction,
+    editMyProjectAction,
     deleteProjectAction
 } from 'actions/projectsAction';
 
 const initialState = {
-    all: [],
+    allProjects: [],
+    myProjects: [],
+    allUsers: [],
 };
 
 export default handleActions({
@@ -18,7 +22,24 @@ export default handleActions({
 
         if (!action.payload.error && Array.isArray(action.payload)) {
             res = {
-                all: action.payload,
+                allProjects: action.payload[1],
+                allUsers: action.payload[0]
+            };
+        } else {
+            res = {
+                ...state,
+                error: action.payload.error,
+            };
+        }
+        return res;
+    },
+
+    [getMyProjectsAction]: (state, action) => {
+        let res = {};
+
+        if (!action.payload.error && Array.isArray(action.payload)) {
+            res = {
+                myProjects: action.payload,
             };
         } else {
             res = {
@@ -34,7 +55,27 @@ export default handleActions({
 
         if (!action.payload.error && action.payload.id) {
             res = {
-                all: state.all.concat(action.payload),
+                myProjects: state.myProjects.concat(action.payload),
+            };
+        } else {
+            res = {
+                ...state,
+                error: action.payload.error,
+            };
+        }
+
+        return res;
+    },
+
+    [editAllProjectAction]: (state, action) => {
+        let res = {};
+
+        if (!action.payload.error && action.payload.id) {
+            let id = action.payload.id;
+            res = {
+                allProjects: [...state.allProjects].map(item => {
+                    return item.id == id ? action.payload : item;
+                })
             };
         } else {
             res = {
@@ -45,15 +86,15 @@ export default handleActions({
         return res;
     },
 
-    [editProjectAction]: (state, action) => {
+    [editMyProjectAction]: (state, action) => {
         let res = {};
 
         if (!action.payload.error && action.payload.id) {
             let id = action.payload.id;
             res = {
-                all: [...state.all].map(item => {
+                myProjects: [...state.myProjects].map(item => {
                     return item.id == id ? action.payload : item;
-                }),
+                })
             };
         } else {
             res = {
@@ -70,7 +111,7 @@ export default handleActions({
 
         if (!action.payload.error && data == '{}') {
             res = {
-                all: [...state.all].filter(item => item.id != id)
+                myProjects: [...state.myProjects].filter(item => item.id != id)
             };
         } else {
             res = {

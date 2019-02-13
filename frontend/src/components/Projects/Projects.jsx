@@ -2,7 +2,6 @@ import './Projects.scss';
 
 import React, { PureComponent, Fragment } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 import {Container, Item} from 'components/Content';
 import {Likes, Dislikes} from 'components/Likes';
@@ -38,60 +37,70 @@ class Projects extends PureComponent {
     };
 
     componentDidMount() {
-        const { getAllProjects } = this.props;
+        const { user, userSignAuth, getAllProjects } = this.props;
         const params = [
             '_sort=likes',
             '_order=desc',
             '_limit=12'
         ];
         getAllProjects(params);
+        if(!user.id) {
+            userSignAuth();
+        }
     }
 
     addDefaultSrc = (e) => {
         e.target.src = DefaultProjectImg;
     };
 
-    // createProject = () => {
-    //     const { createProject } = this.props;
-    //
-    //     //test object
-    //     const obj = {
-    //         "autor": 1,
-    //         "name": "Мой проект 10",
-    //         "img": "/img/project10.jpg",
-    //         "description": "Интернет магазин",
-    //         "detailed": "Швейцарские часы с доставкой в Одессу",
-    //         "likes": 0,
-    //         "dislikes": 0,
-    //         "date": new Date().toISOString()
-    //     };
-    //     createProject(obj);
-    // };
-
     likesProject = (e) => {
-        const { projects, editProject } = this.props;
+        const { user, projects, editAllProject, updateUser } = this.props;
         const id = e.currentTarget.name;
         const thisProject = projects.filter(item => item.id == id)[0];
 
-        editProject(id, {
+        editAllProject(id, {
             ...thisProject,
             likes: thisProject.likes + 1,
         });
+
+        updateUser(user.id, {
+                ...user,
+                likes: {
+                    ...user.likes,
+                    [id]: 1
+                }
+            }
+        );
     };
 
     dislikesProject = (e) => {
-        const { projects, editProject } = this.props;
+        const { user, projects, editAllProject, updateUser } = this.props;
         const id = e.currentTarget.name;
         const thisProject = projects.filter(item => item.id == id)[0];
 
-        editProject(id, {
+        editAllProject(id, {
             ...thisProject,
             dislikes: thisProject.dislikes + 1,
         });
+
+        updateUser(user.id, {
+                ...user,
+                likes: {
+                    ...user.likes,
+                    [id]: -1
+                }
+            }
+        );
     };
 
     render() {
-        const { projects } = this.props;
+        const { user, projects, allUsers } = this.props;
+        const usersName = {};
+        if (Array.isArray(allUsers) && allUsers.length) {
+            allUsers.map(i => {
+                usersName[i.id] = i.login
+            });
+        }
 
         return (
             <Fragment>
@@ -99,6 +108,8 @@ class Projects extends PureComponent {
                     {
                         (Array.isArray(projects)) && projects.map((item, index) => {
                             const [YY, MM, DD] = item.date.split('T')[0].split('-');
+                            const thisAutor = !user.id || !!user.likes[item.id] || user.id == item.autor;
+
                             return(
                                 <Item key={index} xs={12} sm={6} lg={4} xl={3}>
                                     <div data-name={item.id} onClick={this.handleDialog}>
@@ -110,7 +121,7 @@ class Projects extends PureComponent {
                                             {item.description}
                                         </Typography>
                                         <Typography>
-                                            Автор: {item.autor}
+                                            Автор: {usersName[item.autor]}
                                         </Typography>
                                         <Typography>
                                             Дата: {`${DD}-${MM}-${YY}`}
@@ -120,10 +131,12 @@ class Projects extends PureComponent {
                                         {item.likes}
                                         <Likes
                                             id={item.id}
+                                            thisAutor={thisAutor}
                                             onClick={this.likesProject}
                                         />
                                         <Dislikes
                                             id={item.id}
+                                            thisAutor={thisAutor}
                                             onClick={this.dislikesProject}
                                         />
                                         {item.dislikes}

@@ -1,7 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUser, createUser, userSignOut, userSignAuth } from 'actions/usersAction';
-import { getAllProjects, createProject, editProject, deleteProject } from 'actions/projectsAction';
+import {
+    getUser,
+    createUser,
+    userSignOut,
+    userSignAuth
+} from 'actions/usersAction';
+import {
+    getMyProjects,
+    createProject,
+    editMyProject,
+    deleteProject
+} from 'actions/projectsAction';
 import MyProjects from 'components/MyProjects';
 
 
@@ -10,7 +20,7 @@ function mapStateToProps(state, ownProps) {
         ...ownProps,
         user: state.user.user,
         error: state.user.error,
-        projects: state.projects.all,
+        myProjects: state.projects.myProjects,
     }
 }
 
@@ -22,9 +32,9 @@ function mapDispatchToProps(dispatch, props) {
         userSignOut: () => dispatch(userSignOut()),
         userSignAuth: () => dispatch(userSignAuth()),
 
-        getAllProjects: (params) => dispatch(getAllProjects(params)),
+        getMyProjects: (params) => dispatch(getMyProjects(params)),
         createProject: (data) => dispatch(createProject(data)),
-        editProject: (id, data) => dispatch(editProject(id, data)),
+        editMyProject: (id, data) => dispatch(editMyProject(id, data)),
         deleteProject: (id) => dispatch(deleteProject(id)),
     }
 }
