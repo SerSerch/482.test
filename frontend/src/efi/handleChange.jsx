@@ -1,11 +1,11 @@
-export const handleInputChange = (event) => {
+export function handleInputChange (event) {
     this.setState({
         [event.currentTarget.name]: event.target.value
     });
-};
+}
 
-export const handleCheckboxChange = (event) => {
+export function handleCheckboxChange(event) {
     this.setState({
         [event.currentTarget.name]: event.target.checked
     });
-};
+}
