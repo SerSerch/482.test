@@ -1,5 +1,6 @@
 import Hello from 'components/Hello';
 import Home from 'layouts/Home';
+import MyProjects from 'layouts/MyProjects';
 
 export default [
     {
@@ -8,13 +9,8 @@ export default [
         exact: true
     },
     {
-        path: '/:id',
-        component: Home,
-        exact: true
-    },
-    {
         path: '/myprojects',
-        component: Hello,
+        component: MyProjects,
         exact: true
     },
     {
