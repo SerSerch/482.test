@@ -4,7 +4,7 @@ export default [
         title: "Home",
     },
     {
-        link:"/user",
-        title: "User",
+        link:"/myprojects",
+        title: "My projects",
     },
 ];

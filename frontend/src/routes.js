@@ -8,8 +8,13 @@ export default [
         exact: true
     },
     {
-        path: '/myprojects',
+        path: '/:id',
         component: Home,
+        exact: true
+    },
+    {
+        path: '/myprojects',
+        component: Hello,
         exact: true
     },
     {
