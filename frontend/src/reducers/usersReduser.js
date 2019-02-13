@@ -1,16 +1,13 @@
 import { handleActions } from 'redux-actions';
 
-import { userSignedIn, userSignedUp, userSignedOut, userSignedAuth } from 'actions/usersAction';
+import { getUserAction, createUserAction, userSignOutAction, userSignAuthAction } from 'actions/usersAction';
 
 const initialState = {
     isLogined: false,
 };
 
 export default handleActions({
-    //наименование Action которое хотим обработать
-    [userSignedIn]: (state, action) => {
-        //как будет меняться состояние по сигналу
-        //что будем делать в зависимости то того, что пришло
+    [getUserAction]: (state, action) => {
         let res = {};
 
         if (!action.payload.hasOwnProperty('error') && action.payload.hasOwnProperty('email')) {
@@ -26,7 +23,7 @@ export default handleActions({
         }
         return res;
     },
-    [userSignedUp]: (state, action) => {
+    [createUserAction]: (state, action) => {
         let res = {};
 
         if (!action.payload.hasOwnProperty('errors') && action.payload.hasOwnProperty('email')) {
@@ -42,7 +39,7 @@ export default handleActions({
         }
         return res;
     },
-    [userSignedOut]: (state, action) => {
+    [userSignOutAction]: (state, action) => {
         let res = {};
 
         if (!action.payload.hasOwnProperty('error') && action.payload.hasOwnProperty('out')) {
@@ -58,7 +55,7 @@ export default handleActions({
         }
         return res;
     },
-    [userSignedAuth]: (state, action) => {
+    [userSignAuthAction]: (state, action) => {
         let res = {};
         if (!action.payload.error) {
             res = {
