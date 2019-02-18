@@ -1,55 +1,16 @@
-import WebFont from 'webfontloader';
-
-WebFont.load({
-    google: {
-        families: [
-            'Overpass:600',
-            'Source Sans Pro:400,700',
-            'sans-serif'
-        ]
-    }
-});
-
-import './sass/main.scss';
-
-import  React, {Component, Fragment} from 'react';
+import  React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { MuiThemeProvider } from '@material-ui/core/styles';
-
-import Navtop from 'components/Navtop';
-import Footer from 'components/Footer';
-
-import routes from './routes';
 import { store } from './store';
-import { theme482 } from './theme';
-import menu from "./menu";
 
-class App extends Component{
-    render(){
-        return(
-            <Fragment>
-                <div className="container">
-                    <Navtop menu={menu} />
-                    <main className="main">
-                        <Switch>
-                            {routes.map((route, idx) => <Route key={idx} {...route}/>)}
-                        </Switch>
-                    </main>
-                </div>
-                <Footer />
-            </Fragment>
-        );
-    }
-}
+import App from './App';
 
 ReactDom.render(
     <Provider store = {store}>
         <BrowserRouter>
-            <MuiThemeProvider theme={theme482}>
-                <App/>
-            </MuiThemeProvider>
+            <App />
         </BrowserRouter>
     </Provider>,
-    document.getElementById('web-page'));
+    document.getElementById('web-page')
+);
